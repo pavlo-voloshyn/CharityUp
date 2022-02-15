@@ -10,7 +10,7 @@ namespace Domain.Models
     {
         public Guid Id { get; set; }
         public Guid UserId { get; set; }
-        public string FoundationId { get; set; }
+        public string? FoundationId { get; set; }
         public DateTime CreatedDate { get; set; }
         public decimal Amount { get; set; }
     }

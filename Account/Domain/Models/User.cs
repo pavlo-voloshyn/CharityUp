@@ -2,6 +2,9 @@
 
 namespace Domain.Models;
 
+/// <summary>
+/// The entity for representing users of the system
+/// </summary>
 public class User : IdentityUser<Guid>
 {
     public string? FirstName { get; set; }

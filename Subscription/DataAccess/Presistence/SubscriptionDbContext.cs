@@ -1,28 +1,22 @@
 ﻿using DataAccess.Presistence.Mapping;
 using Domain.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace DataAccess.Presistence
+namespace DataAccess.Presistence;
+
+public class SubscriptionDbContext : DbContext
 {
-    public class SubscriptionDbContext : DbContext
+    public DbSet<Subscription> Subscriptions { get; set; }
+
+    public SubscriptionDbContext(DbContextOptions<SubscriptionDbContext> options) : base(options)
     {
-        public DbSet<Subscription> Subscriptions { get; set; }
 
-        public SubscriptionDbContext(DbContextOptions<SubscriptionDbContext> options) : base(options)
-        {
+    }
 
-        }
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-
-            SubscriptionConfiguration.Configure(modelBuilder);
-        }
+        SubscriptionConfiguration.Configure(modelBuilder);
     }
 }

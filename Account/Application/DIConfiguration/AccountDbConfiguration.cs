@@ -2,16 +2,15 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Application.DIConfiguration
+namespace Application.DIConfiguration;
+
+public static class AccountDbConfiguration
 {
-    public static class AccountDbConfiguration
+    public static void ConfigureAccountDbContext(this IServiceCollection services, string connectionString)
     {
-        public static void ConfigureAccountDbContext(this IServiceCollection services, string connectionString)
+        services.AddDbContext<AccountDbContext>(options =>
         {
-            services.AddDbContext<AccountDbContext>(options =>
-            {
-                options.UseSqlServer(connectionString);
-            });
-        }
+            options.UseSqlServer(connectionString);
+        });
     }
 }

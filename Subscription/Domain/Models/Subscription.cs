@@ -15,7 +15,7 @@ public class Subscription
     /// <summary>
     /// Foundation's id which the benefactor subscribed on
     /// </summary>
-    public string? FoundationId { get; set; }
+    public string FoundationId { get; set; }
 
     /// <summary>
     /// Amount of money for payment due to subscription

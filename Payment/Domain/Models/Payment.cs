@@ -10,7 +10,7 @@ public class Payment
     /// <summary>
     /// Description for payment
     /// </summary>
-    public string? Description { get; set; }
+    public string Description { get; set; }
 
     /// <summary>
     /// User's id who donated
@@ -20,7 +20,7 @@ public class Payment
     /// <summary>
     /// Foundation's id which was donated
     /// </summary>
-    public string? FoundationId { get; set; }
+    public string FoundationId { get; set; }
     
     /// <summary>
     /// Date of donation

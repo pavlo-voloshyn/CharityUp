@@ -7,9 +7,9 @@ namespace Domain.Models;
 /// </summary>
 public class User : IdentityUser<Guid>
 {
-    public string? FirstName { get; set; }
+    public string FirstName { get; set; }
     
-    public string? LastName { get; set; }
+    public string LastName { get; set; }
     
     public DateTime? CreatedDate { get; set; }
     
@@ -17,6 +17,6 @@ public class User : IdentityUser<Guid>
 
     public int GenderId { get; set; }
 
-    public Gender? Gender { get; set; }
+    public Gender Gender { get; set; }
 
 }

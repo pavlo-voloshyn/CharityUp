@@ -3,6 +3,9 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace Domain.Models;
 
+/// <summary>
+/// The entity for representing foundation requests in database
+/// </summary>
 public class FoundationRequest
 {
     [BsonId]

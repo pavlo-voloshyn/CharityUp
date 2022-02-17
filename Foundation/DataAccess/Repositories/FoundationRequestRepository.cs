@@ -23,18 +23,28 @@ public class FoundationRequestRepository : IFoundationRequestRepository
             foundationRequestDatabaseSettings.Value.FoundationRequestCollectionName);
     }
 
-    public async Task<List<FoundationRequest>> GetAsync() =>
-        await _foundationRequestCollection.Find(_ => true).ToListAsync();
+    public async Task<List<FoundationRequest>> GetAsync()
+    {
+        return await _foundationRequestCollection.Find(_ => true).ToListAsync();
+    }
 
-    public async Task<FoundationRequest> GetAsync(string id) =>
-        await _foundationRequestCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
+    public async Task<FoundationRequest> GetAsync(string id)
+    {
+        return await _foundationRequestCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
+    }
 
-    public async Task CreateAsync(FoundationRequest newBook) =>
-        await _foundationRequestCollection.InsertOneAsync(newBook);
+    public async Task CreateAsync(FoundationRequest newFoundationRequest)
+    {
+        await _foundationRequestCollection.InsertOneAsync(newFoundationRequest);
+    }
 
-    public async Task UpdateAsync(string id, FoundationRequest updatedBook) =>
-        await _foundationRequestCollection.ReplaceOneAsync(x => x.Id == id, updatedBook);
+    public async Task UpdateAsync(string id, FoundationRequest updatedFoundationRequest)
+    {
+        await _foundationRequestCollection.ReplaceOneAsync(x => x.Id == id, updatedFoundationRequest);
+    }
 
-    public async Task RemoveAsync(string id) =>
+    public async Task RemoveAsync(string id)
+    {
         await _foundationRequestCollection.DeleteOneAsync(x => x.Id == id);
+    }
 }

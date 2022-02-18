@@ -1,5 +1,8 @@
 ﻿namespace DataAccess.Persistence;
 
+/// <summary>
+/// The class which contains all config fields for database
+/// </summary>
 public class FoundationDatabaseSettings
 {
     public string ConnectionString { get; set; }

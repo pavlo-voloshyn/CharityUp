@@ -23,10 +23,12 @@ public static class DependencyInjectionConfiguration
     public static void AddServices(this IServiceCollection services)
     {
         services.AddScoped<IFoundationRequestService, FoundationRequestService>();
+        services.AddScoped<IFoundationService, FoundationService>();
     }
 
     public static void AddRepositories(this IServiceCollection services)
     {
         services.AddScoped<IFoundationRequestRepository, FoundationRequestRepository>();
+        services.AddScoped<IFoundationRepository, FoundationRepository>();
     }
 }

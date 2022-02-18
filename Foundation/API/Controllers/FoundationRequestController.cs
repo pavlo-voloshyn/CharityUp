@@ -44,7 +44,7 @@ public class FoundationRequestController : ControllerBase
     }
 
     [HttpPut]
-    public async Task<IActionResult> CreateFoundationRequestAsync(FoundationRequestUpdateModel foundationRequestUpdateModel)
+    public async Task<IActionResult> UpdateFoundationRequestAsync(FoundationRequestUpdateModel foundationRequestUpdateModel)
     {
         await foundationRequestService.UpdateFoundationRequestAsync(foundationRequestUpdateModel);
         return Ok();

@@ -10,14 +10,14 @@ public interface IFoundationRequestService
     /// <summary>
     /// Create the new foundation request in db as the model sent
     /// </summary>
-    /// <param name="FoundationRequest">A new foundation request</param>
-    Task CreateFoundationRequestAsync(FoundationRequestInsertModel FoundationRequest);
+    /// <param name="foundationRequest">A new foundation request</param>
+    Task CreateFoundationRequestAsync(FoundationRequestInsertModel foundationRequest);
 
     /// <summary>
     /// Update the existing foundation request in db due to the model sent
     /// </summary>
-    /// <param name="FoundationRequest">A updated foundation request</param>
-    Task UpdateFoundationRequestAsync(FoundationRequestUpdateModel FoundationRequest);
+    /// <param name="foundationRequest">A updated foundation request</param>
+    Task UpdateFoundationRequestAsync(FoundationRequestUpdateModel foundationRequest);
 
     /// <summary>
     /// Get all foundation requests from db

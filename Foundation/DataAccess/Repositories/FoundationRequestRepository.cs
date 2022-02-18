@@ -33,14 +33,14 @@ public class FoundationRequestRepository : IFoundationRequestRepository
         return await _foundationRequestCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
     }
 
-    public async Task CreateAsync(FoundationRequest newFoundationRequest)
+    public async Task CreateAsync(FoundationRequest foundationRequest)
     {
-        await _foundationRequestCollection.InsertOneAsync(newFoundationRequest);
+        await _foundationRequestCollection.InsertOneAsync(foundationRequest);
     }
 
-    public async Task UpdateAsync(string id, FoundationRequest updatedFoundationRequest)
+    public async Task UpdateAsync(string id, FoundationRequest foundationRequest)
     {
-        await _foundationRequestCollection.ReplaceOneAsync(x => x.Id == id, updatedFoundationRequest);
+        await _foundationRequestCollection.ReplaceOneAsync(x => x.Id == id, foundationRequest);
     }
 
     public async Task RemoveAsync(string id)

@@ -4,7 +4,7 @@ using Domain.Models;
 
 namespace Application.MapperProfiles;
 
-public class FoundationRequestProfile : Profile
+internal class FoundationRequestProfile : Profile
 {
     public FoundationRequestProfile()
     {

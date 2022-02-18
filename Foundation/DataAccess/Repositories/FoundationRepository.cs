@@ -38,9 +38,9 @@ public class FoundationRepository : IFoundationRepository
         await _foundationCollection.InsertOneAsync(foundation);
     }
 
-    public async Task UpdateAsync(string id, Foundation updatedFoundation)
+    public async Task UpdateAsync(string id, Foundation foundation)
     {
-        await _foundationCollection.ReplaceOneAsync(x => x.Id == id, updatedFoundation);
+        await _foundationCollection.ReplaceOneAsync(x => x.Id == id, foundation);
     }
 
     public async Task RemoveAsync(string id)

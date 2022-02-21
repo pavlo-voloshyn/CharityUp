@@ -47,4 +47,9 @@ public class FoundationRepository : IFoundationRepository
     {
         await _foundationCollection.DeleteOneAsync(x => x.Id == id);
     }
+
+    public async Task AddFoundationInTransaction(IClientSessionHandle session, Foundation foundation)
+    {
+        await _foundationCollection.InsertOneAsync(session, foundation);
+    }
 }

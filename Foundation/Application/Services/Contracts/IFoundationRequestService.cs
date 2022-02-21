@@ -37,4 +37,11 @@ public interface IFoundationRequestService
     /// </summary>
     /// <param name="id">Id of foundation request</param>
     Task DeleteFoundationRequestAsync(string id);
+
+    /// <summary>
+    /// Approve foundation request. Move request to foundation collection
+    /// </summary>
+    /// <param name="foundationRequestId">Id of request</param>
+    /// <returns></returns>
+    Task ApproveFoundationRequestAsync(string foundationRequestId);
 }

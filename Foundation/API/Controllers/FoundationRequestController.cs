@@ -49,4 +49,11 @@ public class FoundationRequestController : ControllerBase
         await foundationRequestService.UpdateFoundationRequestAsync(foundationRequestUpdateModel);
         return Ok();
     }
+
+    [HttpPut("approve")]
+    public async Task<IActionResult> ApproveFoundationRequestAsync(string foundationRequestId)
+    {
+        await foundationRequestService.ApproveFoundationRequestAsync(foundationRequestId);
+        return Ok();
+    }
 }

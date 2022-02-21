@@ -28,6 +28,7 @@ public static class DependencyInjectionConfiguration
 
     public static void AddRepositories(this IServiceCollection services)
     {
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<IFoundationRequestRepository, FoundationRequestRepository>();
         services.AddScoped<IFoundationRepository, FoundationRepository>();
     }

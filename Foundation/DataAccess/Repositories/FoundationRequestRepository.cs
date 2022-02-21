@@ -47,4 +47,9 @@ public class FoundationRequestRepository : IFoundationRequestRepository
     {
         await _foundationRequestCollection.DeleteOneAsync(x => x.Id == id);
     }
+
+    public async Task DeleteFoundationRequestInTransaction(IClientSessionHandle session, string id)
+    {
+        await _foundationRequestCollection.DeleteOneAsync(session, x => x.Id == id);
+    }
 }

@@ -12,5 +12,6 @@ internal class FoundationRequestProfile : Profile
             .ForMember(dst => dst.DateOfRequesting, opt => opt.MapFrom(src => DateTime.UtcNow));
         CreateMap<FoundationRequestUpdateModel, FoundationRequest>();
         CreateMap<FoundationRequest, FoundationRequestViewModel>();
+        CreateMap<FoundationRequest, Foundation>();
     }
 }

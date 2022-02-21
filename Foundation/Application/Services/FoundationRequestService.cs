@@ -13,14 +13,20 @@ public class FoundationRequestService : IFoundationRequestService
 {
     private readonly IFoundationRequestRepository foundationRequestRepository;
     private readonly IMapper mapper;
+    private readonly IFoundationRepository foundationRepository;
+    private readonly IUnitOfWork unitOfWork;
 
     public FoundationRequestService(
             IFoundationRequestRepository foundationRequestRepository,
-            IMapper mapper
+            IMapper mapper,
+            IFoundationRepository foundationRepository,
+            IUnitOfWork unitOfWork
         )
     {
         this.foundationRequestRepository = foundationRequestRepository;
         this.mapper = mapper;
+        this.foundationRepository = foundationRepository;
+        this.unitOfWork = unitOfWork;
     }
 
     /// <summary>
@@ -71,5 +77,36 @@ public class FoundationRequestService : IFoundationRequestService
     {
         var entity = mapper.Map<FoundationRequest>(model);
         await foundationRequestRepository.UpdateAsync(model.Id, entity);
+    }
+
+    /// <summary>
+    /// Approve foundation request. Move request to foundation collection
+    /// </summary>
+    /// <param name="foundationRequestId">Id of request</param>
+    /// <returns></returns>
+    public async Task ApproveFoundationRequestAsync(string foundationRequestId)
+    { 
+        var foundationRequest = await foundationRequestRepository.GetAsync(foundationRequestId);
+        if (foundationRequest == null)
+        {
+            throw new ArgumentException($"There is no request with such id {foundationRequestId}");
+        }
+
+        var foundation = mapper.Map<Foundation>(foundationRequest);
+
+        using var session = await unitOfWork.StartSessionAndTransactionAsync();
+        try
+        { 
+            await foundationRepository.AddFoundationInTransaction(session, foundation);
+
+            await foundationRequestRepository.DeleteFoundationRequestInTransaction(session, foundationRequestId);
+
+            await session.CommitTransactionAsync();
+        }
+        catch (Exception ex)
+        {
+            await session.AbortTransactionAsync();
+            throw new Exception("Error during approving foundation request. Try again", ex);
+        }
     }
 }

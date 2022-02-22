@@ -7,7 +7,7 @@ public interface IRepository<TEntity>
     void Delete(TEntity entity);
 
     IQueryable<TEntity> GetWhere(Func<TEntity, bool> predicate);
-
+ 
     Task<List<TEntity>> GetAllAsync();
 
     Task<TEntity> GetByIdAsync<T>(T id);

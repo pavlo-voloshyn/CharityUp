@@ -9,6 +9,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.ConfigureSubscriptionDbContext(builder.Configuration.GetConnectionString("SubscriptionDb"));
+builder.Services.AddAutoMapper();
+builder.Services.AddRepositories();
+builder.Services.AddServices();
 
 var app = builder.Build();
 

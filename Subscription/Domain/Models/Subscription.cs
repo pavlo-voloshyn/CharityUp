@@ -5,6 +5,9 @@
 /// </summary>
 public class Subscription
 {
+    /// <summary>
+    /// Id of subscription
+    /// </summary>
     public Guid Id { get; set; }
 
     /// <summary>

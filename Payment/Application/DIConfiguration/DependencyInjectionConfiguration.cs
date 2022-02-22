@@ -17,7 +17,7 @@ public static class DependencyInjectionConfiguration
     {
         services.AddMediatR(Assembly.GetExecutingAssembly());
     }
-        public static void AddAutoMapper(this IServiceCollection services)
+    public static void AddAutoMapper(this IServiceCollection services)
     {
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
     }

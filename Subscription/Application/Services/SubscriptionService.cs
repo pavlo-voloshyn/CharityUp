@@ -17,10 +17,10 @@ public class SubscriptionService : ISubscriptionService
         _subscriptionRepository = subscriptionRepository;
     }
 
-    public async Task CreateSubscription(SubscriptionInsertModel subscription)
+    public async Task CreateSubscription(SubscriptionInsertModel subscriptionModel)
     {
-        var subscriptionEntity = _mapper.Map<Subscription>(subscription);
-        _subscriptionRepository.Add(subscriptionEntity);
+        var subscription = _mapper.Map<Subscription>(subscriptionModel);
+        _subscriptionRepository.Add(subscription);
         await _subscriptionRepository.SaveChangesAsync();
     }
 
@@ -57,12 +57,22 @@ public class SubscriptionService : ISubscriptionService
 
     public Task<List<SubscriptionViewModel>> GetSubscriptionsByUserId(Guid userId)
     {
-        var subscriptions = await _subscriptionRepository.GetWhere(x => x.UserId == userId);
-        return _mapper.Map<List<SubscriptionViewModel>>(subscriptions);
+        var subscriptions = _subscriptionRepository.GetWhere(x => x.UserId == userId);
+        return Task.FromResult(_mapper.Map<List<SubscriptionViewModel>>(subscriptions));
     }
 
-    public Task UpdateSubscription(SubscriptionUpdateModel subscription)
+    public async Task UpdateSubscription(SubscriptionUpdateModel subscriptionModel)
     {
-        throw new NotImplementedException();
+        var subscription = await _subscriptionRepository.GetByIdAsync(subscriptionModel.Id);
+
+        if (subscription == null)
+        {
+            throw new ArgumentException("Subscription not found");
+        }
+
+        _mapper.Map(subscriptionModel, subscription);
+
+        _subscriptionRepository.Update(subscription);
+        await _subscriptionRepository.SaveChangesAsync();
     }
 }

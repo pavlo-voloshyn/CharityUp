@@ -2,7 +2,7 @@
 
 namespace Application.Features.Payments.Pay.Commands;
 
-public class PayCommandValidator : AbstractValidator<PayCommand>
+internal class PayCommandValidator : AbstractValidator<PayCommand>
 {
     public PayCommandValidator()
     {

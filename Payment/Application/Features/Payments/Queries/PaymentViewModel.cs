@@ -5,6 +5,9 @@
 /// </summary>
 public class PaymentViewModel
 {
+    /// <summary>
+    /// Payment id
+    /// </summary>
     public Guid Id { get; set; }
 
     /// <summary>

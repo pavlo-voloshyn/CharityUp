@@ -7,7 +7,6 @@ namespace Application.Features.Payments.Pay.Commands;
 /// </summary>
 public class PayCommand : IRequest<PayCommandResponse>
 {
-
     /// <summary>
     /// Description for payment
     /// </summary>

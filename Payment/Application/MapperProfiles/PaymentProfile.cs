@@ -5,7 +5,7 @@ using Domain.Models;
 
 namespace Application.MapperProfiles;
 
-public class PaymentProfile : Profile
+internal class PaymentProfile : Profile
 {
     public PaymentProfile()
     {

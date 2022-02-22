@@ -7,13 +7,13 @@ namespace Application.Features.Payments.Pay.Commands;
 
 public class PayCommandHandler : IRequestHandler<PayCommand, PayCommandResponse>
 {
-    private readonly IMapper mapper;
-    private readonly IPaymentRepository paymentRepository;
+    private readonly IMapper _mapper;
+    private readonly IPaymentRepository _paymentRepository;
 
     public PayCommandHandler(IMapper mapper, IPaymentRepository paymentRepository)
     {
-        this.mapper = mapper;
-        this.paymentRepository = paymentRepository;
+        _mapper = mapper;
+        _paymentRepository = paymentRepository;
     }
 
     public async Task<PayCommandResponse> Handle(PayCommand request, CancellationToken cancellationToken)
@@ -27,10 +27,10 @@ public class PayCommandHandler : IRequestHandler<PayCommand, PayCommandResponse>
             throw new ArgumentException(errorMessage);
         }
 
-        var payment = mapper.Map<Payment>(request);
-        paymentRepository.Add(payment);
-        await paymentRepository.SaveChangesAsync();
+        var payment = _mapper.Map<Payment>(request);
+        _paymentRepository.Add(payment);
+        await _paymentRepository.SaveChangesAsync();
 
-        return new PayCommandResponse() { Message = "Payment was created successfully" }; 
+        return new PayCommandResponse() { Message = "Payment has been made successfully" }; 
     }
 }

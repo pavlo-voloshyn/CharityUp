@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using DataAccess.Contracts;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.Payments.Queries;
 

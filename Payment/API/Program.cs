@@ -9,6 +9,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.ConfigurePaymentDbContext(builder.Configuration.GetConnectionString("PaymentDb"));
+builder.Services.AddRepositories();
+builder.Services.AddAutoMapper();
+builder.Services.AddMediator();
 
 var app = builder.Build();
 

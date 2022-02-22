@@ -37,7 +37,7 @@ public class PaymentController : ControllerBase
         return Ok(response);
     }
 
-    [HttpGet("byUserId/{userId}")]
+    [HttpGet("ByUserId/{userId}")]
     public async Task<IActionResult> GetPaymentsByUserId(Guid userId)
     {
         var response = await _mediator.Send(new GetPaymentsByUserIdQuery() { UserId = userId });

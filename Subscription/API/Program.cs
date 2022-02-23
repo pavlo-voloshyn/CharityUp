@@ -1,3 +1,4 @@
+using API.Middleware;
 using Application.DIConfiguration;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -25,6 +26,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseMiddleware<ExceptionHandlerMiddleware>();
 
 app.MapControllers();
 

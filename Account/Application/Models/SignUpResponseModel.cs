@@ -3,7 +3,7 @@
 /// <summary>
 /// Response model after successful reqistration
 /// </summary>
-public class LogUpResponseModel
+public class SignUpResponseModel
 {
     public Guid Id { get; set; }
 

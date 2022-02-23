@@ -46,13 +46,10 @@ public class AuthService : IAuthService
 
         var token = JwtTokenGenerator.GenerateToken(user.UserName, user.Id, userRoles.ToList(), _jwtSettings.Value);
 
-        var response = _mapper.Map<LogInResponseModel>(user);
-        response.Token = token;
-
-        return response;
+        return new LogInResponseModel() { Token = token };
     }
 
-    public async Task<LogUpResponseModel> LogUp(LogUpRequestModel request)
+    public async Task<SignUpResponseModel> LogUp(SignUpRequestModel request)
     {
         var user = _mapper.Map<User>(request);
 
@@ -66,6 +63,6 @@ public class AuthService : IAuthService
         var identityUser = await _userManager.FindByNameAsync(user.UserName);
         await _userManager.AddToRoleAsync(identityUser, request.Role);
 
-        return _mapper.Map<LogUpResponseModel>(identityUser);
+        return _mapper.Map<SignUpResponseModel>(identityUser);
     }
 }

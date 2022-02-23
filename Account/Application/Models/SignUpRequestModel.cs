@@ -5,7 +5,7 @@ namespace Application.Models;
 /// <summary>
 /// Model for redister a new user
 /// </summary>
-public class LogUpRequestModel
+public class SignUpRequestModel
 {
     [Required]
     [DataType(DataType.EmailAddress)]

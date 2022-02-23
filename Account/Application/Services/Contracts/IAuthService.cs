@@ -11,7 +11,7 @@ public interface IAuthService
     /// Register a new user
     /// </summary>
     /// <param name="model">Model of a new user's data</param>
-    Task<LogUpResponseModel> LogUp(LogUpRequestModel model);
+    Task<SignUpResponseModel> LogUp(SignUpRequestModel model);
 
     /// <summary>
     /// Login user into system

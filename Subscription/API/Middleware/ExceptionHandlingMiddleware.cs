@@ -7,10 +7,12 @@ namespace API.Middleware;
 internal class ExceptionHandlerMiddleware
 {
     private readonly RequestDelegate _next;
+    private readonly ILogger<ExceptionHandlerMiddleware> _logger;
 
-    public ExceptionHandlerMiddleware(RequestDelegate next)
+    public ExceptionHandlerMiddleware(RequestDelegate next, ILogger<ExceptionHandlerMiddleware> logger)
     {
         _next = next;
+        _logger = logger;
     }
 
     public async Task InvokeAsync(HttpContext httpContext)
@@ -27,6 +29,8 @@ internal class ExceptionHandlerMiddleware
 
     private async Task HandleExceptionAsync(HttpContext context, Exception exception)
     {
+        _logger.LogError(exception, "Exception occured");
+
         context.Response.ContentType = "application/json";
         context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
         

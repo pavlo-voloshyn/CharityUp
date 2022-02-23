@@ -1,9 +1,9 @@
-﻿namespace Domain.Models;
+﻿namespace Application.Models;
 
 /// <summary>
-/// The entity for representing subscriptions of benefactors in database
+/// Model for viewing subscription data
 /// </summary>
-public class Subscription
+public class SubscriptionViewModel
 {
     /// <summary>
     /// Id of subscription

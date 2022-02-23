@@ -10,6 +10,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.ConfigureAccountDbContext(builder.Configuration.GetConnectionString("AccountDb"));
 builder.Services.ConfigureIdentityServer();
+builder.Services.ConfigureJwtSettings(builder.Configuration.GetSection("JwtSettings"));
+builder.Services.AddAutoMapper();
+builder.Services.AddRepositories();
+builder.Services.AddServices();
 
 var app = builder.Build();
 

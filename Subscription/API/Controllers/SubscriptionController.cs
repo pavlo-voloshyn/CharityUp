@@ -29,7 +29,7 @@ public class SubscriptionController : ControllerBase
         return Ok();
     }
 
-    [HttpDelete("cancel/{id}")]
+    [HttpDelete("Cancel/{id}")]
     public async Task<IActionResult> CancelSubscription(Guid id)
     {
         await _subscriptionService.DeleteSubscription(id);
@@ -50,7 +50,7 @@ public class SubscriptionController : ControllerBase
         return Ok(response);
     }
 
-    [HttpGet("byUserId/{id}")]
+    [HttpGet("ByUserId/{id}")]
     public async Task<IActionResult> GetSubscriptionsByUserId(Guid id)
     {
         var response = await _subscriptionService.GetSubscriptionsByUserId(id);

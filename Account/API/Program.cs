@@ -1,3 +1,4 @@
+using API.Filters;
 using API.Middleware;
 using Application.DIConfiguration;
 using NLog;
@@ -22,6 +23,7 @@ try
     builder.Services.AddAutoMapper();
     builder.Services.AddRepositories();
     builder.Services.AddServices();
+    builder.Services.AddScoped<AuditLoggingAttribute>();
     builder.Logging.ClearProviders();
     builder.Logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
     builder.Host.UseNLog();

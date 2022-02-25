@@ -1,4 +1,5 @@
-﻿using Application.Features.Payments.Pay.Commands;
+﻿using API.Filters;
+using Application.Features.Payments.Pay.Commands;
 using Application.Features.Payments.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -7,6 +8,7 @@ namespace API.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[ServiceFilter(typeof(AuditLoggingAttribute))]
 public class PaymentController : ControllerBase
 {
     private readonly IMediator _mediator;

@@ -1,4 +1,5 @@
-﻿using Application.Services.Contracts;
+﻿using API.Filters;
+using Application.Services.Contracts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,6 +7,7 @@ namespace API.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[ServiceFilter(typeof(AuditLoggingAttribute))]
 public class UserController : ControllerBase
 {
     private readonly IUserService _userService;

@@ -1,4 +1,5 @@
-﻿using Application.Models;
+﻿using API.Filters;
+using Application.Models;
 using Application.Services.Contracts;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,6 +7,7 @@ namespace API.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[ServiceFilter(typeof(AuditLoggingAttribute))]
 public class SubscriptionController : ControllerBase
 {
     private readonly ISubscriptionService _subscriptionService;

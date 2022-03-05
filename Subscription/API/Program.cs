@@ -1,8 +1,8 @@
-using API.Filters;
-using API.Middleware;
-using Application.DIConfiguration;
 using NLog;
 using NLog.Web;
+using SubscriptionService.API.Filters;
+using SubscriptionService.API.Middleware;
+using SubscriptionService.Application.DIConfiguration;
 
 var logger = LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
 logger.Info("Start Application");

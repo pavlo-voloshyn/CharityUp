@@ -1,6 +1,6 @@
-using API.Filters;
-using API.Middleware;
-using Application.DIConfiguration;
+using FoundationService.API.Filters;
+using FoundationService.API.Middleware;
+using FoundationService.Application.DIConfiguration;
 using NLog;
 using NLog.Web;
 

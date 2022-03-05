@@ -1,9 +1,9 @@
-﻿using Domain.Common;
-using Domain.Models;
+﻿using AccountService.Domain.Common;
+using AccountService.Domain.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-namespace DataAccess.Persistence.Seeding
+namespace AccountService.DataAccess.Persistence.Seeding
 {
     public class AccountDbSeeding
     {

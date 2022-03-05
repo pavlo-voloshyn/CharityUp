@@ -1,9 +1,9 @@
-﻿using DataAccess.Persistence;
-using Domain.Models;
+﻿using AccountService.DataAccess.Persistence;
+using AccountService.Domain.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Application.DIConfiguration;
+namespace AccountService.Application.DIConfiguration;
 
 public static class IdentityServerConfiguration
 {

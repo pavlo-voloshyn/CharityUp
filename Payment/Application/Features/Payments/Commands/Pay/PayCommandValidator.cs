@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace Application.Features.Payments.Pay.Commands;
+namespace PaymentService.Application.Features.Payments.Commands.Pay;
 
 internal class PayCommandValidator : AbstractValidator<PayCommand>
 {

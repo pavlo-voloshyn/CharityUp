@@ -1,8 +1,8 @@
-﻿using DataAccess.Persistence;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using PaymentService.DataAccess.Persistence;
 
-namespace Application.DIConfiguration;
+namespace PaymentService.Application.DIConfiguration;
 
 public static class PaymentDbConfiguration
 {

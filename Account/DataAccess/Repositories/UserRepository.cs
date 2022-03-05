@@ -1,9 +1,9 @@
-﻿using DataAccess.Contracts;
-using DataAccess.Persistence;
-using Domain.Models;
+﻿using AccountService.DataAccess.Contracts;
+using AccountService.DataAccess.Persistence;
+using AccountService.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace DataAccess.Repositories;
+namespace AccountService.DataAccess.Repositories;
 
 public class UserRepository : BaseRepository<User>, IUserRepository
 {

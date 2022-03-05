@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using DataAccess.Contracts;
 using MediatR;
+using PaymentService.DataAccess.Contracts;
 
-namespace Application.Features.Payments.Queries;
+namespace PaymentService.Application.Features.Payments.Queries;
 
 public class GetPaymentByIdQueryHandler : IRequestHandler<GetPaymentByIdQuery, PaymentViewModel>
 {
@@ -18,7 +18,7 @@ public class GetPaymentByIdQueryHandler : IRequestHandler<GetPaymentByIdQuery, P
     public async Task<PaymentViewModel> Handle(GetPaymentByIdQuery request, CancellationToken cancellationToken)
     {
         var payment = await paymentRepository.GetByIdAsync(request.Id);
-        
+
         if (payment == null)
         {
             throw new ArgumentException("Payment not found");

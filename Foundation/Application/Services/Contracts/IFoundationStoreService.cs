@@ -1,11 +1,11 @@
-﻿using Application.Models.FoundationModels;
+﻿using FoundationService.Application.Models.FoundationModels;
 
-namespace Application.Services.Contracts;
+namespace FoundationService.Application.Services.Contracts;
 
 /// <summary>
 /// The service for manipulation foundations in database
 /// </summary>
-public interface IFoundationService
+public interface IFoundationStoreService
 {
     /// <summary>
     /// Create the new foundation in db as the model sent

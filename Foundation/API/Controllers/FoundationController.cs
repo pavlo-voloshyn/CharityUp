@@ -1,18 +1,18 @@
-﻿using API.Filters;
-using Application.Models.FoundationModels;
-using Application.Services.Contracts;
+﻿using FoundationService.API.Filters;
+using FoundationService.Application.Models.FoundationModels;
+using FoundationService.Application.Services.Contracts;
 using Microsoft.AspNetCore.Mvc;
 
-namespace API.Controllers;
+namespace FoundationService.API.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
 [ServiceFilter(typeof(AuditLoggingAttribute))]
 public class FoundationController : ControllerBase
 {
-    private readonly IFoundationService foundationService;
+    private readonly IFoundationStoreService foundationService;
 
-    public FoundationController(IFoundationService foundationService)
+    public FoundationController(IFoundationStoreService foundationService)
     {
         this.foundationService = foundationService;
     }

@@ -1,4 +1,4 @@
-﻿namespace Application.Features.Payments.Queries;
+﻿namespace PaymentService.Application.Features.Payments.Queries;
 
 /// <summary>
 /// View model for payment

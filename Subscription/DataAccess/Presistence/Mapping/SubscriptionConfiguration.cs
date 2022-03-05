@@ -1,7 +1,7 @@
-﻿using Domain.Models;
+﻿using SubscriptionService.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace DataAccess.Presistence.Mapping;
+namespace SubscriptionService.DataAccess.Presistence.Mapping;
 
 public class SubscriptionConfiguration
 {

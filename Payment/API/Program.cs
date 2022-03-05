@@ -1,8 +1,8 @@
-using API.Filters;
-using API.Middleware;
-using Application.DIConfiguration;
 using NLog;
 using NLog.Web;
+using PaymentService.API.Filters;
+using PaymentService.API.Middleware;
+using PaymentService.Application.DIConfiguration;
 
 var logger = LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
 logger.Info("Start Application");

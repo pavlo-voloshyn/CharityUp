@@ -1,12 +1,12 @@
-﻿using Application.Helpers;
-using Application.Models;
-using Application.Services.Contracts;
+﻿using AccountService.Application.Helpers;
+using AccountService.Application.Models;
+using AccountService.Application.Services.Contracts;
+using AccountService.Domain.Models;
 using AutoMapper;
-using Domain.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 
-namespace Application.Services;
+namespace AccountService.Application.Services;
 
 public class AuthService : IAuthService
 {
@@ -27,7 +27,7 @@ public class AuthService : IAuthService
     }
 
     public async Task<LogInResponseModel> LogIn(LogInRequestModel request)
-    {  
+    {
         var user = await _userManager.FindByNameAsync(request.UserName);
 
         if (user == null)

@@ -1,4 +1,4 @@
-﻿namespace Application.Models;
+﻿namespace SubscriptionService.Application.Models;
 
 /// <summary>
 /// Model for viewing subscription data

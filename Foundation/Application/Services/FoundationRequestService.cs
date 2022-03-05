@@ -1,10 +1,10 @@
-﻿using Application.Models;
-using Application.Services.Contracts;
-using AutoMapper;
-using DataAccess.Contracts;
-using Domain.Models;
+﻿using AutoMapper;
+using FoundationService.Application.Models.FoundationRequestModels;
+using FoundationService.Application.Services.Contracts;
+using FoundationService.DataAccess.Contracts;
+using FoundationService.Domain.Models;
 
-namespace Application.Services;
+namespace FoundationService.Application.Services;
 
 /// <summary>
 /// The service for manipulation of foundation requests in db
@@ -84,22 +84,22 @@ public class FoundationRequestService : IFoundationRequestService
     /// </summary>
     /// <param name="foundationRequestId">Id of request</param>
     /// <returns></returns>
-    public async Task ApproveFoundationRequestAsync(string foundationRequestId)
-    { 
-        var foundationRequest = await foundationRequestRepository.GetAsync(foundationRequestId);
+    public async Task ApproveFoundationRequestAsync(ApproveFoundationRequestModel approveFoundationRequestModel)
+    {
+        var foundationRequest = await foundationRequestRepository.GetAsync(approveFoundationRequestModel.FoundationRequestId);
         if (foundationRequest == null)
         {
-            throw new ArgumentException($"There is no request with such id {foundationRequestId}");
+            throw new ArgumentException($"There is no request with such id {approveFoundationRequestModel.FoundationRequestId}");
         }
 
         var foundation = mapper.Map<Foundation>(foundationRequest);
 
         using var session = await unitOfWork.StartSessionAndTransactionAsync();
         try
-        { 
+        {
             await foundationRepository.AddFoundationInTransaction(session, foundation);
 
-            await foundationRequestRepository.DeleteFoundationRequestInTransaction(session, foundationRequestId);
+            await foundationRequestRepository.DeleteFoundationRequestInTransaction(session, approveFoundationRequestModel.FoundationRequestId);
 
             await session.CommitTransactionAsync();
         }

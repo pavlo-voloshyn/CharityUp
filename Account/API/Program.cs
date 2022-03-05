@@ -1,6 +1,6 @@
-using API.Filters;
-using API.Middleware;
-using Application.DIConfiguration;
+using AccountService.API.Filters;
+using AccountService.API.Middleware;
+using AccountService.Application.DIConfiguration;
 using NLog;
 using NLog.Web;
 
@@ -28,6 +28,7 @@ try
     builder.Logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
     builder.Host.UseNLog();
 
+
     var app = builder.Build();
 
     // Configure the HTTP request pipeline.
@@ -44,6 +45,8 @@ try
     app.UseMiddleware<ExceptionHandlerMiddleware>();
 
     app.MapControllers();
+
+    app.UseCors(builder => builder.AllowAnyOrigin());
 
     app.Run();
 }

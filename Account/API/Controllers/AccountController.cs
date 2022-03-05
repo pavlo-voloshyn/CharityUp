@@ -1,13 +1,13 @@
-﻿using API.Filters;
-using Application.Models;
-using Application.Services.Contracts;
+﻿using AccountService.API.Filters;
+using AccountService.Application.Models;
+using AccountService.Application.Services.Contracts;
 using Microsoft.AspNetCore.Mvc;
 
-namespace API.Controllers;
+namespace AccountService.API.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-[ServiceFilter(typeof(AuditLoggingAttribute))]
+[TypeFilter(typeof(AuditLoggingAttribute))]
 public class AccountController : ControllerBase
 {
     private readonly IAuthService _authService;

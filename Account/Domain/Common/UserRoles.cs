@@ -1,4 +1,4 @@
-﻿namespace Domain.Common;
+﻿namespace AccountService.Domain.Common;
 
 public static class UserRoles
 {

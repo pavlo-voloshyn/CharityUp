@@ -1,6 +1,6 @@
-﻿using Application.Models;
+﻿using FoundationService.Application.Models.FoundationRequestModels;
 
-namespace Application.Services.Contracts;
+namespace FoundationService.Application.Services.Contracts;
 
 /// <summary>
 /// The service interface for manipulation of foundation requests in db
@@ -43,5 +43,5 @@ public interface IFoundationRequestService
     /// </summary>
     /// <param name="foundationRequestId">Id of request</param>
     /// <returns></returns>
-    Task ApproveFoundationRequestAsync(string foundationRequestId);
+    Task ApproveFoundationRequestAsync(ApproveFoundationRequestModel approveFoundationRequestModel);
 }

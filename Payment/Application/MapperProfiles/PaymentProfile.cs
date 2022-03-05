@@ -1,9 +1,9 @@
-﻿using Application.Features.Payments.Pay.Commands;
-using Application.Features.Payments.Queries;
-using AutoMapper;
-using Domain.Models;
+﻿using AutoMapper;
+using PaymentService.Domain.Models;
+using PaymentService.Application.Features.Payments.Commands.Pay;
+using PaymentService.Application.Features.Payments.Queries;
 
-namespace Application.MapperProfiles;
+namespace PaymentService.Application.MapperProfiles;
 
 internal class PaymentProfile : Profile
 {

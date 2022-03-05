@@ -1,11 +1,11 @@
-﻿using DataAccess.Persistence.Mapping;
-using DataAccess.Persistence.Seeding;
-using Domain.Models;
+﻿using AccountService.DataAccess.Persistence.Mapping;
+using AccountService.DataAccess.Persistence.Seeding;
+using AccountService.Domain.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace DataAccess.Persistence;
+namespace AccountService.DataAccess.Persistence;
 
 public class AccountDbContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>
 {

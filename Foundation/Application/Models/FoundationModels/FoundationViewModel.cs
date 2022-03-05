@@ -1,4 +1,4 @@
-﻿namespace Application.Models.FoundationModels;
+﻿namespace FoundationService.Application.Models.FoundationModels;
 
 /// <summary>
 /// The model for viewing existing foundation 

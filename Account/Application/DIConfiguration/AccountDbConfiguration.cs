@@ -1,8 +1,8 @@
-﻿using DataAccess.Persistence;
+﻿using AccountService.DataAccess.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Application.DIConfiguration;
+namespace AccountService.Application.DIConfiguration;
 
 public static class AccountDbConfiguration
 {

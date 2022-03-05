@@ -1,8 +1,8 @@
-﻿using Application.Models;
+﻿using AccountService.Application.Models;
+using AccountService.Domain.Models;
 using AutoMapper;
-using Domain.Models;
 
-namespace Application.MapperProfiles;
+namespace AccountService.Application.MapperProfiles;
 
 public class UserProfile : Profile
 {

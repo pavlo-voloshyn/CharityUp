@@ -1,10 +1,10 @@
-﻿using API.Filters;
-using Application.Features.Payments.Pay.Commands;
-using Application.Features.Payments.Queries;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using PaymentService.API.Filters;
+using PaymentService.Application.Features.Payments.Commands.Pay;
+using PaymentService.Application.Features.Payments.Queries;
 
-namespace API.Controllers;
+namespace PaymentService.API.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]

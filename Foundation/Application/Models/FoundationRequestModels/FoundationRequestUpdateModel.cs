@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Application.Models;
+namespace FoundationService.Application.Models.FoundationRequestModels;
 
 /// <summary>
 /// The model for updating existing foundation request

@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using DataAccess.Contracts;
 using MediatR;
+using PaymentService.DataAccess.Contracts;
 
-namespace Application.Features.Payments.Queries;
+namespace PaymentService.Application.Features.Payments.Queries;
 
 public class GetPaymentsByUserIdQueryHandler : IRequestHandler<GetPaymentsByUserIdQuery, List<PaymentViewModel>>
 {

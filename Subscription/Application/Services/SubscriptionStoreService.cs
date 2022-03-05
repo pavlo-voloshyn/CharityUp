@@ -1,17 +1,17 @@
-﻿using Application.Models;
-using Application.Services.Contracts;
-using AutoMapper;
-using DataAccess.Contracts;
-using Domain.Models;
+﻿using AutoMapper;
+using SubscriptionService.Domain.Models;
+using SubscriptionService.Application.Models;
+using SubscriptionService.Application.Services.Contracts;
+using SubscriptionService.DataAccess.Contracts;
 
-namespace Application.Services;
+namespace SubscriptionService.Application.Services;
 
-public class SubscriptionService : ISubscriptionService
+public class SubscriptionStoreService : ISubscriptionStoreService
 {
     private readonly IMapper _mapper;
     private readonly ISubscriptionRepository _subscriptionRepository;
 
-    public SubscriptionService(IMapper mapper, ISubscriptionRepository subscriptionRepository)
+    public SubscriptionStoreService(IMapper mapper, ISubscriptionRepository subscriptionRepository)
     {
         _mapper = mapper;
         _subscriptionRepository = subscriptionRepository;
@@ -27,7 +27,7 @@ public class SubscriptionService : ISubscriptionService
     public async Task DeleteSubscription(Guid id)
     {
         var subscription = await _subscriptionRepository.GetByIdAsync(id);
-        
+
         if (subscription == null)
         {
             throw new ArgumentException("Subscription not found");
@@ -40,7 +40,7 @@ public class SubscriptionService : ISubscriptionService
     public async Task<SubscriptionViewModel> GetSubscriptionById(Guid id)
     {
         var subscription = await _subscriptionRepository.GetByIdAsync(id);
-        
+
         if (subscription == null)
         {
             throw new ArgumentException("Subscription not found");

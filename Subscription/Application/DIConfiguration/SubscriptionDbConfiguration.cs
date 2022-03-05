@@ -1,8 +1,8 @@
-﻿using DataAccess.Presistence;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using SubscriptionService.DataAccess.Presistence;
 
-namespace Application.DIConfiguration;
+namespace SubscriptionService.Application.DIConfiguration;
 
 public static class SubscriptionDbConfiguration
 {

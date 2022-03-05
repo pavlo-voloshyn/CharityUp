@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Application.Models;
+namespace AccountService.Application.Models;
 
 /// <summary>
 /// Model for redister a new user

@@ -1,10 +1,11 @@
-﻿using DataAccess.Contracts;
-using DataAccess.Repositories;
-using MediatR;
+﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using PaymentService.Application.DIConfiguration;
+using PaymentService.DataAccess.Contracts;
+using PaymentService.DataAccess.Repositories;
 using System.Reflection;
 
-namespace Application.DIConfiguration;
+namespace PaymentService.Application.DIConfiguration;
 
 public static class DependencyInjectionConfiguration
 {

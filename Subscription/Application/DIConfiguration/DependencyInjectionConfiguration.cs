@@ -1,16 +1,17 @@
-﻿using Application.Services;
-using Application.Services.Contracts;
-using DataAccess.Contracts;
-using DataAccess.Repositories;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
+using SubscriptionService.Application.DIConfiguration;
+using SubscriptionService.Application.Services.Contracts;
+using SubscriptionService.Application.Services;
+using SubscriptionService.DataAccess.Contracts;
+using SubscriptionService.DataAccess.Repositories;
 
-namespace Application.DIConfiguration;
+namespace SubscriptionService.Application.DIConfiguration;
 
 public static class DependencyInjectionConfiguration
 {
     public static void AddServices(this IServiceCollection services)
     {
-        services.AddScoped<ISubscriptionService, SubscriptionService>();
+        services.AddScoped<ISubscriptionStoreService, SubscriptionStoreService>();
     }
 
     public static void AddRepositories(this IServiceCollection services)

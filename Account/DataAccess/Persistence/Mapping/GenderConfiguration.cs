@@ -1,7 +1,7 @@
-﻿using Domain.Models;
+﻿using AccountService.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace DataAccess.Persistence.Mapping;
+namespace AccountService.DataAccess.Persistence.Mapping;
 
 public class GenderConfiguration
 {

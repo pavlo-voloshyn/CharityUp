@@ -1,8 +1,8 @@
-﻿using DataAccess.Mapping;
-using Domain.Models;
+﻿using PaymentService.Domain.Models;
 using Microsoft.EntityFrameworkCore;
+using PaymentService.DataAccess.Mapping;
 
-namespace DataAccess.Persistence;
+namespace PaymentService.DataAccess.Persistence;
 
 public class PaymentDbContext : DbContext
 {

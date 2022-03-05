@@ -1,9 +1,9 @@
-﻿using Application.Models;
-using Application.Services.Contracts;
+﻿using AccountService.Application.Models;
+using AccountService.Application.Services.Contracts;
+using AccountService.DataAccess.Contracts;
 using AutoMapper;
-using DataAccess.Contracts;
 
-namespace Application.Services;
+namespace AccountService.Application.Services;
 
 public class UserService : IUserService
 {

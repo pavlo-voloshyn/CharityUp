@@ -1,4 +1,4 @@
-﻿namespace DataAccess.Contracts;
+﻿namespace FoundationService.DataAccess.Contracts;
 
 /// <summary>
 /// Repository interface for CRUD operations

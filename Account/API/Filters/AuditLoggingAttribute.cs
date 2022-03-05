@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace API.Filters;
+namespace AccountService.API.Filters;
 
 public class AuditLoggingAttribute : ActionFilterAttribute
 {

@@ -1,6 +1,6 @@
-﻿using Domain.Models;
+﻿using PaymentService.Domain.Models;
 
-namespace DataAccess.Contracts;
+namespace PaymentService.DataAccess.Contracts;
 
 public interface IPaymentRepository : IRepository<Payment>
 {

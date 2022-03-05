@@ -1,20 +1,20 @@
-﻿using Application.Models.FoundationModels;
-using Application.Services.Contracts;
-using AutoMapper;
-using DataAccess.Contracts;
-using Domain.Models;
+﻿using AutoMapper;
+using FoundationService.Domain.Models;
+using FoundationService.Application.Models.FoundationModels;
+using FoundationService.Application.Services.Contracts;
+using FoundationService.DataAccess.Contracts;
 
-namespace Application.Services;
+namespace FoundationService.Application.Services;
 
 /// <summary>
 /// The service for manipulation of foundations in db
 /// </summary>
-public class FoundationService : IFoundationService
+public class FoundationStoreService : IFoundationStoreService
 {
     private readonly IFoundationRepository foundationRepository;
     private readonly IMapper mapper;
 
-    public FoundationService(
+    public FoundationStoreService(
             IFoundationRepository foundationRepository,
             IMapper mapper
         )

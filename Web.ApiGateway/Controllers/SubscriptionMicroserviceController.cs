@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AccountService.Domain.Common;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SubscriptionService.Application.Models;
 using Web.ApiGateway.Services;
 
@@ -16,6 +18,7 @@ public class SubscriptionMicroserviceController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Roles = $"{UserRoles.Benefactor}")]
     public async Task<IActionResult> CreateSubscription(SubscriptionInsertModel subscriptionModel)
     {
         await _subscriptionHttpClientService.PostAsync("api/subscription", subscriptionModel);
@@ -23,6 +26,7 @@ public class SubscriptionMicroserviceController : ControllerBase
     }
 
     [HttpPut]
+    [Authorize(Roles = $"{UserRoles.Admin},{UserRoles.Benefactor}")]
     public async Task<IActionResult> UpdateSubscription(SubscriptionUpdateModel subscriptionModel)
     {
         await _subscriptionHttpClientService.PutAsync("api/subscription", subscriptionModel);
@@ -30,6 +34,7 @@ public class SubscriptionMicroserviceController : ControllerBase
     }
 
     [HttpDelete("Cancel/{id}")]
+    [Authorize(Roles = $"{UserRoles.Admin},{UserRoles.Benefactor}")]
     public async Task<IActionResult> CancelSubscription(Guid id)
     {
         await _subscriptionHttpClientService.DeleteAsync($"api/subscription/Cancel/{id}");
@@ -37,6 +42,7 @@ public class SubscriptionMicroserviceController : ControllerBase
     }
 
     [HttpGet]
+    [Authorize(Roles = $"{UserRoles.Admin}")]
     public async Task<IActionResult> GetAllSubscriptions()
     {
         var response = await _subscriptionHttpClientService.GetAsync<List<SubscriptionViewModel>>("api/subscription");
@@ -44,6 +50,7 @@ public class SubscriptionMicroserviceController : ControllerBase
     }
 
     [HttpGet("{id}")]
+    [Authorize(Roles = $"{UserRoles.Admin},{UserRoles.Benefactor}")]
     public async Task<IActionResult> GetSubscriptionById(Guid id)
     {
         var response = await _subscriptionHttpClientService.GetAsync<SubscriptionViewModel>($"api/subscription/{id}");
@@ -51,6 +58,7 @@ public class SubscriptionMicroserviceController : ControllerBase
     }
 
     [HttpGet("ByUserId/{id}")]
+    [Authorize(Roles = $"{UserRoles.Admin},{UserRoles.Benefactor}")]
     public async Task<IActionResult> GetSubscriptionsByUserId(Guid id)
     {
         var response = await _subscriptionHttpClientService.GetAsync<List<SubscriptionViewModel>>($"api/subscription/ByUserId/{id}");

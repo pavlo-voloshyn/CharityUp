@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AccountService.Domain.Common;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PaymentService.Application.Features.Payments.Commands.Pay;
 using PaymentService.Application.Features.Payments.Queries;
 using Web.ApiGateway.Services;
@@ -17,6 +19,7 @@ public class PaymentMicroserviceController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Roles = $"{UserRoles.Benefactor}")]
     public async Task<IActionResult> CreatePayment(PayCommand command)
     {
         var response = await _paymentHttpClientService.PostAsync<PayCommandResponse>("api/payment", command);
@@ -24,6 +27,7 @@ public class PaymentMicroserviceController : ControllerBase
     }
 
     [HttpGet]
+    [Authorize(Roles = $"{UserRoles.Admin}")]
     public async Task<IActionResult> GetPayments()
     {
         var response = await _paymentHttpClientService.GetAsync<List<PaymentViewModel>>("api/payment");
@@ -31,6 +35,7 @@ public class PaymentMicroserviceController : ControllerBase
     }
 
     [HttpGet("{id}")]
+    [Authorize(Roles = $"{UserRoles.Admin},{UserRoles.Benefactor}")]
     public async Task<IActionResult> GetPaymentByUserId(Guid id)
     {
         var response = await _paymentHttpClientService.GetAsync<PaymentViewModel>($"api/payment/{id}");
@@ -38,6 +43,7 @@ public class PaymentMicroserviceController : ControllerBase
     }
 
     [HttpGet("ByUserId/{userId}")]
+    [Authorize(Roles = $"{UserRoles.Admin},{UserRoles.Benefactor}")]
     public async Task<IActionResult> GetPaymentsByUserId(Guid userId)
     {
         var response = await _paymentHttpClientService.GetAsync<List<PaymentViewModel>>($"api/payment/ByUserId{userId}");

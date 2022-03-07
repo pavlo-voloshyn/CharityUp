@@ -1,4 +1,6 @@
 ﻿using AccountService.Application.Models;
+using AccountService.Domain.Common;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Web.ApiGateway.Services;
 
@@ -25,11 +27,12 @@ public class AccountMicroserviceController : ControllerBase
     [HttpPost("Account/LogIn")]
     public async Task<IActionResult> LogIn(LogInRequestModel logInRequestModel)
     {
-        var response = await _accountHttpClientService.PostAsync<SignUpResponseModel>("api/account/LogIn", logInRequestModel);
+        var response = await _accountHttpClientService.PostAsync<LogInResponseModel>("api/account/LogIn", logInRequestModel);
         return Ok(response);
     }
 
     [HttpGet("User")]
+    [Authorize(Roles = $"{UserRoles.Admin}")]
     public async Task<IActionResult> GetAllUsers()
     {
         var response = await _accountHttpClientService.GetAsync<List<UserModel>>("api/user");

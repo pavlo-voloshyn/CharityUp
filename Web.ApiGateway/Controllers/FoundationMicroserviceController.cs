@@ -1,5 +1,7 @@
-﻿using FoundationService.Application.Models.FoundationModels;
+﻿using AccountService.Domain.Common;
+using FoundationService.Application.Models.FoundationModels;
 using FoundationService.Application.Models.FoundationRequestModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Web.ApiGateway.Services;
 
@@ -57,6 +59,7 @@ public class FoundationMicroserviceController : ControllerBase
     #region FoundationRequest
 
     [HttpGet("FoundationRequest")]
+    [Authorize(Roles = $"{UserRoles.Admin}")]
     public async Task<IActionResult> GetAllFoundationRequestsAsync()
     {
         var result = await _foundationHttpClientService.GetAsync<List<FoundationRequestViewModel>>("api/FoundationRequest");
@@ -64,6 +67,7 @@ public class FoundationMicroserviceController : ControllerBase
     }
 
     [HttpGet("FoundationRequest/{id}")]
+    [Authorize(Roles = $"{UserRoles.Admin},{UserRoles.Representative}")]
     public async Task<IActionResult> GetFoundationRequestByIdAsync(string id)
     {
         var result = await _foundationHttpClientService.GetAsync<FoundationRequestViewModel>($"api/FoundationRequest/{id}");
@@ -71,6 +75,7 @@ public class FoundationMicroserviceController : ControllerBase
     }
 
     [HttpDelete("FoundationRequest/{id}")]
+    [Authorize(Roles = $"{UserRoles.Admin},{UserRoles.Representative}")]
     public async Task<IActionResult> DeleteFoundationRequestAsync(string id)
     {
         await _foundationHttpClientService.DeleteAsync($"api/FoundationRequest/{id}");
@@ -78,6 +83,7 @@ public class FoundationMicroserviceController : ControllerBase
     }
 
     [HttpPost("FoundationRequest")]
+    [Authorize(Roles = $"{UserRoles.Admin},{UserRoles.Representative}")]
     public async Task<IActionResult> CreateFoundationRequestAsync(FoundationRequestInsertModel foundationRequestInsertModel)
     {
         await _foundationHttpClientService.PostAsync("api/FoundationRequest", foundationRequestInsertModel);
@@ -85,6 +91,7 @@ public class FoundationMicroserviceController : ControllerBase
     }
 
     [HttpPut("FoundationRequest")]
+    [Authorize(Roles = $"{UserRoles.Admin},{UserRoles.Representative}")]
     public async Task<IActionResult> UpdateFoundationRequestAsync(FoundationRequestUpdateModel foundationRequestUpdateModel)
     {
         await _foundationHttpClientService.PutAsync("api/FoundatuonRequest", foundationRequestUpdateModel);
@@ -92,6 +99,7 @@ public class FoundationMicroserviceController : ControllerBase
     }
 
     [HttpPut("FoundationRequest/approve")]
+    [Authorize(Roles = $"{UserRoles.Admin}")]
     public async Task<IActionResult> ApproveFoundationRequestAsync(ApproveFoundationRequestModel approveFoundationRequestModel)
     {
         await _foundationHttpClientService.PutAsync("api/FoundationRequst/approve", approveFoundationRequestModel);

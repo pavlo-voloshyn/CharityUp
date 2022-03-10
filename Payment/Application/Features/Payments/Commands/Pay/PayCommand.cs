@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace Application.Features.Payments.Pay.Commands;
+namespace PaymentService.Application.Features.Payments.Commands.Pay;
 
 /// <summary>
 /// Command for creating payment

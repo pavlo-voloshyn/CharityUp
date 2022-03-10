@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Application.Models.FoundationModels;
+namespace FoundationService.Application.Models.FoundationModels;
 
 /// <summary>
 /// The model for creatin foundation in db

@@ -1,4 +1,4 @@
-﻿namespace Application.Models;
+﻿namespace AccountService.Application.Models;
 
 /// <summary>
 /// Model for configuring jwt settings

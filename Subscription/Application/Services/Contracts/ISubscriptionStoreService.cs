@@ -1,11 +1,11 @@
-﻿using Application.Models;
+﻿using SubscriptionService.Application.Models;
 
-namespace Application.Services.Contracts;
+namespace SubscriptionService.Application.Services.Contracts;
 
 /// <summary>
 /// Service for manipulation and getting data of database
 /// </summary>
-public interface ISubscriptionService
+public interface ISubscriptionStoreService
 {
     /// <summary>
     /// Create subscription in database
@@ -30,7 +30,7 @@ public interface ISubscriptionService
     /// </summary>
     /// <returns>Subscriptions</returns>
     Task<List<SubscriptionViewModel>> GetSubscriptions();
-    
+
     /// <summary>
     /// Get a subscription by its id
     /// </summary>

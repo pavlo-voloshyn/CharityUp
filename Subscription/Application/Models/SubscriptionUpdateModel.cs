@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Application.Models;
+namespace SubscriptionService.Application.Models;
 
 /// <summary>
 /// Model for updating subscription info

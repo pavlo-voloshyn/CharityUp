@@ -1,7 +1,7 @@
-﻿using Domain.Models;
+﻿using FoundationService.Domain.Models;
 using MongoDB.Driver;
 
-namespace DataAccess.Contracts;
+namespace FoundationService.DataAccess.Contracts;
 
 /// <summary>
 /// Repositoty for manipulation of foundations in database

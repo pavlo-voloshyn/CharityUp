@@ -1,9 +1,9 @@
-﻿using API.Filters;
-using Application.Models;
-using Application.Services.Contracts;
+﻿using FoundationService.API.Filters;
+using FoundationService.Application.Models.FoundationRequestModels;
+using FoundationService.Application.Services.Contracts;
 using Microsoft.AspNetCore.Mvc;
 
-namespace API.Controllers;
+namespace FoundationService.API.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -53,9 +53,9 @@ public class FoundationRequestController : ControllerBase
     }
 
     [HttpPut("approve")]
-    public async Task<IActionResult> ApproveFoundationRequestAsync(string foundationRequestId)
+    public async Task<IActionResult> ApproveFoundationRequestAsync(ApproveFoundationRequestModel approveFoundationRequestModel)
     {
-        await foundationRequestService.ApproveFoundationRequestAsync(foundationRequestId);
+        await foundationRequestService.ApproveFoundationRequestAsync(approveFoundationRequestModel);
         return Ok();
     }
 }

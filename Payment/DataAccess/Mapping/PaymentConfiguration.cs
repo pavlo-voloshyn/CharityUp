@@ -1,7 +1,7 @@
-﻿using Domain.Models;
+﻿using PaymentService.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace DataAccess.Mapping;
+namespace PaymentService.DataAccess.Mapping;
 
 public class PaymentConfiguration
 {

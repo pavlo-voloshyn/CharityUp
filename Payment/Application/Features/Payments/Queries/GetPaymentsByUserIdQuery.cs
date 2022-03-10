@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace Application.Features.Payments.Queries;
+namespace PaymentService.Application.Features.Payments.Queries;
 
 /// <summary>
 /// Get payments by their user id

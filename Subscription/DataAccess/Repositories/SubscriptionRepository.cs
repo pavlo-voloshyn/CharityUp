@@ -1,8 +1,8 @@
-﻿using DataAccess.Contracts;
-using DataAccess.Presistence;
-using Domain.Models;
+﻿using SubscriptionService.Domain.Models;
+using SubscriptionService.DataAccess.Contracts;
+using SubscriptionService.DataAccess.Presistence;
 
-namespace DataAccess.Repositories;
+namespace SubscriptionService.DataAccess.Repositories;
 
 public class SubscriptionRepository : BaseRepository<Subscription>, ISubscriptionRepository
 {

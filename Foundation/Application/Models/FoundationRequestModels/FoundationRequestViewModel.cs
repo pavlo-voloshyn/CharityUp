@@ -1,4 +1,4 @@
-﻿namespace Application.Models;
+﻿namespace FoundationService.Application.Models.FoundationRequestModels;
 
 /// <summary>
 /// The model for viewing existing foundation request 

@@ -1,4 +1,4 @@
-﻿namespace DataAccess.Contracts;
+﻿namespace AccountService.DataAccess.Contracts;
 
 public interface IRepository<TEntity>
 {

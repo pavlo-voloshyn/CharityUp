@@ -1,9 +1,9 @@
-﻿using API.Filters;
-using Application.Services.Contracts;
+﻿using AccountService.API.Filters;
+using AccountService.Application.Services.Contracts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace API.Controllers;
+namespace AccountService.API.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]

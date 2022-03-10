@@ -1,6 +1,6 @@
-﻿using Domain.Models;
+﻿using AccountService.Domain.Models;
 
-namespace Application.Models;
+namespace AccountService.Application.Models;
 
 /// <summary>
 /// View model of user

@@ -1,4 +1,4 @@
-﻿namespace Domain.Models;
+﻿namespace SubscriptionService.Domain.Models;
 
 /// <summary>
 /// The entity for representing subscriptions of benefactors in database

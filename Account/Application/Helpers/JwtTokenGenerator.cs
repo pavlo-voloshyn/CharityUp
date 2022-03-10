@@ -1,11 +1,11 @@
-﻿using Application.Models;
-using Domain.Models;
+﻿using AccountService.Domain.Models;
+using AccountService.Application.Models;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace Application.Helpers;
+namespace AccountService.Application.Helpers;
 
 public static class JwtTokenGenerator
 {

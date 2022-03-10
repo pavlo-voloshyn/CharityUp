@@ -1,6 +1,6 @@
-﻿using Domain.Models;
+﻿using SubscriptionService.Domain.Models;
 
-namespace DataAccess.Contracts;
+namespace SubscriptionService.DataAccess.Contracts;
 
 public interface ISubscriptionRepository : IRepository<Subscription>
 {

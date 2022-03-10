@@ -1,4 +1,4 @@
-﻿namespace DataAccess.Contracts;
+﻿namespace PaymentService.DataAccess.Contracts;
 
 public interface IRepository<TEntity>
 {

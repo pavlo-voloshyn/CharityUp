@@ -1,8 +1,8 @@
-﻿using Application.Models.FoundationModels;
-using AutoMapper;
-using Domain.Models;
+﻿using AutoMapper;
+using FoundationService.Domain.Models;
+using FoundationService.Application.Models.FoundationModels;
 
-namespace Application.MapperProfiles;
+namespace FoundationService.Application.MapperProfiles;
 
 internal class FoundationProfile : Profile
 {

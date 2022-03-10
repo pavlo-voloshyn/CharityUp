@@ -1,4 +1,4 @@
-﻿namespace Application.Features.Payments.Pay.Commands;
+﻿namespace PaymentService.Application.Features.Payments.Commands.Pay;
 
 /// <summary>
 /// Response on pay command is request was successfull

@@ -1,8 +1,8 @@
-﻿using Application.Models;
-using AutoMapper;
-using Domain.Models;
+﻿using AutoMapper;
+using SubscriptionService.Domain.Models;
+using SubscriptionService.Application.Models;
 
-namespace Application.MapperProfiles;
+namespace SubscriptionService.Application.MapperProfiles;
 
 internal class SubscriptionProfile : Profile
 {

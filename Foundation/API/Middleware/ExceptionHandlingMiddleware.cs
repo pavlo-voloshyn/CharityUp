@@ -2,7 +2,7 @@
 using System.Net;
 using System.Text.Json;
 
-namespace API.Middleware;
+namespace FoundationService.API.Middleware;
 
 internal class ExceptionHandlerMiddleware
 {
@@ -33,7 +33,7 @@ internal class ExceptionHandlerMiddleware
 
         context.Response.ContentType = "application/json";
         context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-        
+
         if (exception is ArgumentException || exception is FormatException)
         {
             context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
@@ -45,13 +45,13 @@ internal class ExceptionHandlerMiddleware
         {
             context.Response.StatusCode = (int)HttpStatusCode.MethodNotAllowed;
         }
-        
+
         var result = JsonSerializer.Serialize(new
         {
             message = exception.Message,
             innerExceptionMessage = exception.InnerException?.Message
         });
-        
+
         await context.Response.WriteAsync(result);
     }
 }

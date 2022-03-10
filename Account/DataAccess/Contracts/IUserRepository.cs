@@ -1,6 +1,6 @@
-﻿using Domain.Models;
+﻿using AccountService.Domain.Models;
 
-namespace DataAccess.Contracts;
+namespace AccountService.DataAccess.Contracts;
 
 public interface IUserRepository : IRepository<User>
 {

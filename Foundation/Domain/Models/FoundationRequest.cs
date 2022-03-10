@@ -1,7 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace Domain.Models;
+namespace FoundationService.Domain.Models;
 
 /// <summary>
 /// The entity for representing foundation requests in database

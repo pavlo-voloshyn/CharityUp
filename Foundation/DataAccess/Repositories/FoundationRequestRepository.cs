@@ -1,10 +1,10 @@
-﻿using DataAccess.Contracts;
-using DataAccess.Persistence;
-using Domain.Models;
+﻿using FoundationService.DataAccess.Contracts;
+using FoundationService.DataAccess.Persistence;
+using FoundationService.Domain.Models;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 
-namespace DataAccess.Repositories;
+namespace FoundationService.DataAccess.Repositories;
 
 public class FoundationRequestRepository : IFoundationRequestRepository
 {

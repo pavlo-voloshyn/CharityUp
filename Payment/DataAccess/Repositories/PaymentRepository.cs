@@ -1,8 +1,8 @@
-﻿using DataAccess.Contracts;
-using DataAccess.Persistence;
-using Domain.Models;
+﻿using PaymentService.Domain.Models;
+using PaymentService.DataAccess.Contracts;
+using PaymentService.DataAccess.Persistence;
 
-namespace DataAccess.Repositories;
+namespace PaymentService.DataAccess.Repositories;
 
 public class PaymentRepository : BaseRepository<Payment>, IPaymentRepository
 {

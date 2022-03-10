@@ -1,12 +1,13 @@
-﻿using Application.Models;
-using Application.Services;
-using Application.Services.Contracts;
-using DataAccess.Contracts;
-using DataAccess.Repositories;
+﻿using AccountService.Application.DIConfiguration;
+using AccountService.Application.Models;
+using AccountService.Application.Services;
+using AccountService.Application.Services.Contracts;
+using AccountService.DataAccess.Contracts;
+using AccountService.DataAccess.Repositories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Application.DIConfiguration;
+namespace AccountService.Application.DIConfiguration;
 
 public static class DependencyInjectionConfiguration
 {

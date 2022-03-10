@@ -1,12 +1,13 @@
-﻿using Application.Services;
-using Application.Services.Contracts;
-using DataAccess.Contracts;
-using DataAccess.Persistence;
-using DataAccess.Repositories;
+﻿using FoundationService.Application.DIConfiguration;
+using FoundationService.Application.Services;
+using FoundationService.Application.Services.Contracts;
+using FoundationService.DataAccess.Contracts;
+using FoundationService.DataAccess.Persistence;
+using FoundationService.DataAccess.Repositories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Application.DIConfiguration;
+namespace FoundationService.Application.DIConfiguration;
 
 public static class DependencyInjectionConfiguration
 {
@@ -23,7 +24,7 @@ public static class DependencyInjectionConfiguration
     public static void AddServices(this IServiceCollection services)
     {
         services.AddScoped<IFoundationRequestService, FoundationRequestService>();
-        services.AddScoped<IFoundationService, FoundationService>();
+        services.AddScoped<IFoundationStoreService, FoundationStoreService>();
     }
 
     public static void AddRepositories(this IServiceCollection services)

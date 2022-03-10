@@ -1,8 +1,8 @@
-﻿using DataAccess.Contracts;
-using DataAccess.Presistence;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using SubscriptionService.DataAccess.Contracts;
+using SubscriptionService.DataAccess.Presistence;
 
-namespace DataAccess.Repositories;
+namespace SubscriptionService.DataAccess.Repositories;
 
 public class BaseRepository<TEntity> : IRepository<TEntity> where TEntity : class
 {

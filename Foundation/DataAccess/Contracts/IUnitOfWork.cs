@@ -1,6 +1,6 @@
 ﻿using MongoDB.Driver;
 
-namespace DataAccess.Contracts;
+namespace FoundationService.DataAccess.Contracts;
 
 /// <summary>
 /// Tool for creating transaction

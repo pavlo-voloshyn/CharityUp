@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
-using DataAccess.Contracts;
-using Domain.Models;
+using PaymentService.Domain.Models;
 using MediatR;
+using PaymentService.DataAccess.Contracts;
 
-namespace Application.Features.Payments.Pay.Commands;
+namespace PaymentService.Application.Features.Payments.Commands.Pay;
 
 public class PayCommandHandler : IRequestHandler<PayCommand, PayCommandResponse>
 {
@@ -31,6 +31,6 @@ public class PayCommandHandler : IRequestHandler<PayCommand, PayCommandResponse>
         _paymentRepository.Add(payment);
         await _paymentRepository.SaveChangesAsync();
 
-        return new PayCommandResponse() { Message = "Payment has been made successfully" }; 
+        return new PayCommandResponse() { Message = "Payment has been made successfully" };
     }
 }

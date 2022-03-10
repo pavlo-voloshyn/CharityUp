@@ -1,8 +1,8 @@
-﻿using DataAccess.Contracts;
-using DataAccess.Persistence;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using PaymentService.DataAccess.Contracts;
+using PaymentService.DataAccess.Persistence;
 
-namespace DataAccess.Repositories;
+namespace PaymentService.DataAccess.Repositories;
 
 public class BaseRepository<TEntity> : IRepository<TEntity> where TEntity : class
 {
@@ -15,7 +15,7 @@ public class BaseRepository<TEntity> : IRepository<TEntity> where TEntity : clas
 
     public virtual void Add(TEntity entity)
     {
-       _context.Set<TEntity>().Add(entity);
+        _context.Set<TEntity>().Add(entity);
     }
 
     public virtual void Delete(TEntity entity)

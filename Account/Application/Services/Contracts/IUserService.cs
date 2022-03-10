@@ -1,6 +1,6 @@
-﻿using Application.Models;
+﻿using AccountService.Application.Models;
 
-namespace Application.Services.Contracts;
+namespace AccountService.Application.Services.Contracts;
 
 /// <summary>
 /// Service for manipulation and getting data of users in database

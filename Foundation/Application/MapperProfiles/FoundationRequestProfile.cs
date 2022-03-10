@@ -1,8 +1,8 @@
-﻿using Application.Models;
-using AutoMapper;
-using Domain.Models;
+﻿using AutoMapper;
+using FoundationService.Application.Models.FoundationRequestModels;
+using FoundationService.Domain.Models;
 
-namespace Application.MapperProfiles;
+namespace FoundationService.Application.MapperProfiles;
 
 internal class FoundationRequestProfile : Profile
 {

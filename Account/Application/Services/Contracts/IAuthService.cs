@@ -1,11 +1,11 @@
-﻿using Application.Models;
+﻿using AccountService.Application.Models;
 
-namespace Application.Services.Contracts;
+namespace AccountService.Application.Services.Contracts;
 
 /// <summary>
 /// Service for account management
 /// </summary>
-public interface IAuthService 
+public interface IAuthService
 {
     /// <summary>
     /// Register a new user

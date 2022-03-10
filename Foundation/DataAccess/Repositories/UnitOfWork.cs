@@ -1,9 +1,9 @@
-﻿using DataAccess.Contracts;
-using DataAccess.Persistence;
+﻿using FoundationService.DataAccess.Contracts;
+using FoundationService.DataAccess.Persistence;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 
-namespace DataAccess.Repositories;
+namespace FoundationService.DataAccess.Repositories;
 
 public class UnitOfWork : IUnitOfWork
 {

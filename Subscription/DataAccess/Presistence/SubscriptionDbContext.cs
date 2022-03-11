@@ -7,6 +7,7 @@ namespace SubscriptionService.DataAccess.Presistence;
 public class SubscriptionDbContext : DbContext
 {
     public DbSet<Subscription> Subscriptions { get; set; }
+    public DbSet<SubscriptionLog> SubscriptionLogs { get; set; }
 
     public SubscriptionDbContext(DbContextOptions<SubscriptionDbContext> options) : base(options)
     {

@@ -17,14 +17,14 @@ public class SubscriptionStoreService : ISubscriptionStoreService
         _subscriptionRepository = subscriptionRepository;
     }
 
-    public async Task CreateSubscription(SubscriptionInsertModel subscriptionModel)
+    public async Task CreateSubscriptionAsync(SubscriptionInsertModel subscriptionModel)
     {
         var subscription = _mapper.Map<Subscription>(subscriptionModel);
         _subscriptionRepository.Add(subscription);
         await _subscriptionRepository.SaveChangesAsync();
     }
 
-    public async Task DeleteSubscription(Guid id)
+    public async Task DeleteSubscriptionAsync(Guid id)
     {
         var subscription = await _subscriptionRepository.GetByIdAsync(id);
 
@@ -37,7 +37,7 @@ public class SubscriptionStoreService : ISubscriptionStoreService
         await _subscriptionRepository.SaveChangesAsync();
     }
 
-    public async Task<SubscriptionViewModel> GetSubscriptionById(Guid id)
+    public async Task<SubscriptionViewModel> GetSubscriptionByIdAsync(Guid id)
     {
         var subscription = await _subscriptionRepository.GetByIdAsync(id);
 
@@ -49,7 +49,7 @@ public class SubscriptionStoreService : ISubscriptionStoreService
         return _mapper.Map<SubscriptionViewModel>(subscription);
     }
 
-    public async Task<List<SubscriptionViewModel>> GetSubscriptions()
+    public async Task<List<SubscriptionViewModel>> GetSubscriptionsAsync()
     {
         var subscriptions = await _subscriptionRepository.GetAllAsync();
         return _mapper.Map<List<SubscriptionViewModel>>(subscriptions);
@@ -61,7 +61,7 @@ public class SubscriptionStoreService : ISubscriptionStoreService
         return Task.FromResult(_mapper.Map<List<SubscriptionViewModel>>(subscriptions));
     }
 
-    public async Task UpdateSubscription(SubscriptionUpdateModel subscriptionModel)
+    public async Task UpdateSubscriptionAsync(SubscriptionUpdateModel subscriptionModel)
     {
         var subscription = await _subscriptionRepository.GetByIdAsync(subscriptionModel.Id);
 

@@ -14,6 +14,7 @@ public static class DependencyInjectionConfiguration
     public static void AddServices(this IServiceCollection services)
     {
         services.AddScoped<ISubscriptionStoreService, SubscriptionStoreService>();
+        services.AddTransient<IQueueService, QueueService>();
     }
 
     public static void AddRepositories(this IServiceCollection services)
@@ -39,6 +40,15 @@ public static class DependencyInjectionConfiguration
             q.AddTrigger(opts => opts
                 .ForJob(jobKey)
                 .WithIdentity($"{nameof(CheckEndOfSubscriptionsJob)}-trigger") 
+                .WithCronSchedule("0 * * ? * *"));
+
+            jobKey = new JobKey(nameof(SendPaymentsFromSubscriptionJob));
+
+            q.AddJob<SendPaymentsFromSubscriptionJob>(opts => opts.WithIdentity(jobKey));
+
+            q.AddTrigger(opts => opts
+                .ForJob(jobKey)
+                .WithIdentity($"{nameof(SendPaymentsFromSubscriptionJob)}-trigger")
                 .WithCronSchedule("0 * * ? * *"));
 
         });

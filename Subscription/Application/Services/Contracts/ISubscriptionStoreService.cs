@@ -11,32 +11,32 @@ public interface ISubscriptionStoreService
     /// Create subscription in database
     /// </summary>
     /// <param name="subscription">A new subscription</param>
-    Task CreateSubscription(SubscriptionInsertModel subscription);
+    Task CreateSubscriptionAsync(SubscriptionInsertModel subscription);
 
     /// <summary>
     /// Update the existing subscription in database
     /// </summary>
     /// <param name="subscription">Updated subscription</param>
-    Task UpdateSubscription(SubscriptionUpdateModel subscription);
+    Task UpdateSubscriptionAsync(SubscriptionUpdateModel subscription);
 
     /// <summary>
     /// Delete subscription by id
     /// </summary>
     /// <param name="id">Id of the existing subscription</param>
-    Task DeleteSubscription(Guid id);
+    Task DeleteSubscriptionAsync(Guid id);
 
     /// <summary>
     /// Get all subscriptions
     /// </summary>
     /// <returns>Subscriptions</returns>
-    Task<List<SubscriptionViewModel>> GetSubscriptions();
+    Task<List<SubscriptionViewModel>> GetSubscriptionsAsync();
 
     /// <summary>
     /// Get a subscription by its id
     /// </summary>
     /// <param name="id">Id of subscription</param>
     /// <returns></returns>
-    Task<SubscriptionViewModel> GetSubscriptionById(Guid id);
+    Task<SubscriptionViewModel> GetSubscriptionByIdAsync(Guid id);
 
     /// <summary>
     /// Get all user's subscriptions

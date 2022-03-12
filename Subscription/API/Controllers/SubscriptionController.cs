@@ -20,35 +20,35 @@ public class SubscriptionController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> CreateSubscription(SubscriptionInsertModel subscriptionModel)
     {
-        await _subscriptionService.CreateSubscription(subscriptionModel);
+        await _subscriptionService.CreateSubscriptionAsync(subscriptionModel);
         return Ok();
     }
 
     [HttpPut]
     public async Task<IActionResult> UpdateSubscription(SubscriptionUpdateModel subscriptionModel)
     {
-        await _subscriptionService.UpdateSubscription(subscriptionModel);
+        await _subscriptionService.UpdateSubscriptionAsync(subscriptionModel);
         return Ok();
     }
 
     [HttpDelete("Cancel/{id}")]
     public async Task<IActionResult> CancelSubscription(Guid id)
     {
-        await _subscriptionService.DeleteSubscription(id);
+        await _subscriptionService.DeleteSubscriptionAsync(id);
         return Ok();
     }
 
     [HttpGet]
     public async Task<IActionResult> GetAllSubscriptions()
     {
-        var response = await _subscriptionService.GetSubscriptions();
+        var response = await _subscriptionService.GetSubscriptionsAsync();
         return Ok(response);
     }
 
     [HttpGet("{id}")]
     public async Task<IActionResult> GetSubscriptionById(Guid id)
     {
-        var response = await _subscriptionService.GetSubscriptionById(id);
+        var response = await _subscriptionService.GetSubscriptionByIdAsync(id);
         return Ok(response);
     }
 

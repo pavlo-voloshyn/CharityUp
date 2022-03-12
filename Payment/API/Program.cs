@@ -22,6 +22,7 @@ try
     builder.Services.AddAutoMapper();
     builder.Services.AddMediator();
     builder.Services.AddScoped<AuditLoggingAttribute>();
+    builder.Services.AddServices();
     builder.Logging.ClearProviders();
     builder.Logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
     builder.Host.UseNLog();

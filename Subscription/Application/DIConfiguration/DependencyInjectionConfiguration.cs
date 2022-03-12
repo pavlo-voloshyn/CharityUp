@@ -4,6 +4,8 @@ using SubscriptionService.Application.Services.Contracts;
 using SubscriptionService.Application.Services;
 using SubscriptionService.DataAccess.Contracts;
 using SubscriptionService.DataAccess.Repositories;
+using Quartz;
+using SubscriptionService.Application.Jobs;
 
 namespace SubscriptionService.Application.DIConfiguration;
 
@@ -22,5 +24,27 @@ public static class DependencyInjectionConfiguration
     public static void AddAutoMapper(this IServiceCollection services)
     {
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+    }
+
+    public static void ConfigureQuartz(this IServiceCollection services)
+    {
+        services.AddQuartz(q =>
+        {
+            q.UseMicrosoftDependencyInjectionJobFactory();
+
+            var jobKey = new JobKey(nameof(CheckEndOfSubscriptionsJob));
+
+            q.AddJob<CheckEndOfSubscriptionsJob>(opts => opts.WithIdentity(jobKey));
+
+            q.AddTrigger(opts => opts
+                .ForJob(jobKey)
+                .WithIdentity($"{nameof(CheckEndOfSubscriptionsJob)}-trigger") 
+                .WithCronSchedule("0 * * ? * *"));
+
+        });
+
+        services.AddQuartzHostedService(
+            q => q.WaitForJobsToComplete = true);
+
     }
 }

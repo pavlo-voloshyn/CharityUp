@@ -18,7 +18,7 @@ public class SubscriptionMicroserviceController : ControllerBase
     }
 
     [HttpPost]
-    [Authorize(Roles = $"{UserRoles.Benefactor}")]
+    [Authorize(Roles = $"{UserRoles.Admin},{UserRoles.Benefactor}")]
     public async Task<IActionResult> CreateSubscription(SubscriptionInsertModel subscriptionModel)
     {
         await _subscriptionHttpClientService.PostAsync("api/subscription", subscriptionModel);

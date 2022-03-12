@@ -3,6 +3,8 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
+    <DockerComposeProjectPath>..\..\..\..\docker-compose.dcproj</DockerComposeProjectPath>
+    <UserSecretsId>26fe2a2f-27be-4022-8ddc-5e5951ae376c</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
